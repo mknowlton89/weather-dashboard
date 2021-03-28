@@ -10,6 +10,7 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="./assets/css/styles.css">
     </head>
     <body>
@@ -18,43 +19,68 @@
         </header>
         <div id="body-main">
         <aside id="input-aside">
-            <ol>
-                <li>Atlanta</li>
-                <li>Atlanta</li>
-                <li>Atlanta</li>
-                <li>Atlanta</li>
-                <li>Atlanta</li>
-            </ol>
+            <h2>Search for a City:</h2>
+
+            <form>
+                <input type="text">
+                <!-- <button type="submit"><img id="submit-button" src="./assets/images/ClipartKey_3009296.png" alt=""></button> -->
+                <button type="button" class="btn btn-primary"><img id="submit-button" src="./assets/images/ClipartKey_3009296.png" alt=""></button>
+            </form>
+
+            <ul class="list-group">
+                <li class="list-group-item">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Morbi leo risus</li>
+                <li class="list-group-item">Porta ac consectetur ac</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+            </ul>
 
         </aside>
         <div id="weather-section">
             <section id="city-detail">
-                <h1>Atlanta</h1>
-                <p>Temp</p>
-                <p>Humidity</p>
-                <p>Wind</p>
-                <p>UV Index</p>
+                <h1>Atlanta
+                    <span id="date">(8/15/2019)</span>
+                    <span id="weather-indicator"><img src="" alt=""></span>
+                </h1>
+                <p>Temperature: <span class="temp-indicator">90.9</span>°F</p>
+                <p>Humidity: <span class="humidity-indicator">41%</span></p>
+                <p>Wind Speed: <span id="wind-speed-indicator">4.7</span> MPH</p>
+                <p id="last-p">UV Index: <span id="uv-index-indicator">9.49</span</p>
             </section>
             <section id="city-5-day">
-                <div>
-                    <h2>Monday</h2>
-                    <p>Detail</p>
-                </div>
-                <div>
-                    <h2>Tuesday</h2>
-                    <p>Detail</p>
-                </div>
-                <div>
-                    <h2>Wednesday</h2>
-                    <p>Detail</p>
-                </div>
-                <div>
-                    <h2>Thursday</h2>
-                    <p>Detail</p>
-                </div>
-                <div>
-                    <h2>Friday</h2>
-                    <p>Detail</p>
+                <h2>5-Day Forecast:</h2>
+                <div id="day-divs">
+                    <div>
+                        <h2><span id="date">(8/15/2019)</span></h2>
+                        <p><span id="weather-indicator"><img src="" alt=""></span></p>
+                        <p>Temperature: <span class="temp-indicator">90.9</span>°F</p>
+                        <p>Humidity: <span class="humidity-indicator">41%</span></p>
+                    </div>
+                    <div>
+                        <h2><span id="date">(8/15/2019)</span></h2>
+                        <p><span id="weather-indicator"><img src="" alt=""></span></p>
+                        <p>Temperature: <span class="temp-indicator">90.9</span>°F</p>
+                        <p>Humidity: <span class="humidity-indicator">41%</span></p>
+                    </div>
+                    <div>
+                        <h2><span id="date">(8/15/2019)</span></h2>
+                        <p><span id="weather-indicator"><img src="" alt=""></span></p>
+                        <p>Temperature: <span class="temp-indicator">90.9</span>°F</p>
+                        <p>Humidity: <span class="humidity-indicator">41%</span></p>
+                    </div>
+                    <div>
+                        <h2><span id="date">(8/15/2019)</span></h2>
+                        <p><span id="weather-indicator"><img src="" alt=""></span></p>
+                        <p>Temperature: <span class="temp-indicator">90.9</span>°F</p>
+                        <p>Humidity: <span class="humidity-indicator">41%</span></p>
+                    </div>
+                    <div>
+                        <h2><span id="date">(8/15/2019)</span></h2>
+                        <p><span id="weather-indicator"><img src="" alt=""></span></p>
+                        <p>Temperature: <span class="temp-indicator">90.9</span>°F</p>
+                        <p>Humidity: <span class="humidity-indicator">41%</span></p>
+                    </div>
+
                 </div>
 
             </section>

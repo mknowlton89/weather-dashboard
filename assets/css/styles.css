@@ -1,5 +1,45 @@
+header {
+    background-color: #343A3F;
+}
+
 header h1 {
     text-align: center;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 40px;
+}
+
+aside {
+    padding: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    margin-bottom: 15px;
+}
+
+li {
+    cursor: pointer;
+}
+
+/* button {
+    background-color:#017CFE;
+    border: 3px;
+    border-style: solid;
+    border-color: skyblue;
+    border-radius: 5px;
+} */
+
+#submit-button {
+    height: 15px;
+    padding: 10px;
+}
+
+form input {
+    font-size: 18px;
 }
 
 #body-main {
@@ -8,7 +48,7 @@ header h1 {
 }
 
 #input-aside {
-    background-color: gray;
+    background-color: #F8F9FA;
     width: 30%;
     margin: 10px;
 }
@@ -18,14 +58,55 @@ header h1 {
     margin: 10px;
 }
 
-#weather-section, #city-detail, #city-5-day {
-    border: 1px solid;
+#city-detail {
+    border-style: solid;
+    border-width: thin;
+    border-color: #cecece;
 }
 
 #city-5-day {
     margin-top: 10px;
 }
 
+#day-divs {
+    display: flex;
+    flex-direction: row;
+    /* width: 20%; */
+    justify-content: space-between;
+}
+
 #city-detail, #city-5-day {
     padding-left: 10px;
+}
+
+#uv-index-indicator {
+    background-color:#DD3444;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+}
+
+#city-detail h1 {
+    padding: 20px 0px 10px 0px
+}
+
+#city-detail p {
+    font-size: 16px;
+}
+
+#day-divs div {
+    background-color: #017CFE;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    padding-right: 30px;
+}
+
+#last-p {
+    padding-bottom: 20px;
+}
+
+.list-group {
+    font-size: 18px;
+    color: #767C80;
 }
