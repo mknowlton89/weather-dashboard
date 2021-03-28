@@ -1,0 +1,31 @@
+header h1 {
+    text-align: center;
+}
+
+#body-main {
+    display: flex;
+    justify-content: space-around;
+}
+
+#input-aside {
+    background-color: gray;
+    width: 30%;
+    margin: 10px;
+}
+
+#weather-section {
+    width:70%;
+    margin: 10px;
+}
+
+#weather-section, #city-detail, #city-5-day {
+    border: 1px solid;
+}
+
+#city-5-day {
+    margin-top: 10px;
+}
+
+#city-detail, #city-5-day {
+    padding-left: 10px;
+}
