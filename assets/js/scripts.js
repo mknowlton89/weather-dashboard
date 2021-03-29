@@ -44,7 +44,7 @@ function lookupUvi(lat, lon) {
 
             for (let i = 0; i < 5; i++) {
 
-                let img = ("http://openweathermap.org/img/w/" + data.daily[i].weather[0].icon + ".png");
+                let img = ("https://openweathermap.org/img/w/" + data.daily[i].weather[0].icon + ".png");
 
                 // Create a div
                 let div = $('<div>').addClass("day-div");
