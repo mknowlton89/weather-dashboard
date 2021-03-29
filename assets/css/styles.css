@@ -25,6 +25,10 @@ li {
     cursor: pointer;
 }
 
+img {
+    height: fit-content;
+}
+
 /* button {
     background-color:#017CFE;
     border: 3px;
@@ -33,13 +37,13 @@ li {
     border-radius: 5px;
 } */
 
+form input {
+    font-size: 18px;
+}
+
 #submit-button {
     height: 15px;
     padding: 10px;
-}
-
-form input {
-    font-size: 18px;
 }
 
 #body-main {
@@ -86,10 +90,6 @@ form input {
     color: white;
 }
 
-/* #city-detail h1 {
-    padding: 20px 0px 10px 0px
-} */
-
 #city-detail p {
     font-size: 16px;
 }
@@ -113,11 +113,15 @@ form input {
     padding: 20px 0px 10px 0px;
 }
 
-img {
-    height: fit-content;
-}
-
 .list-group {
     font-size: 18px;
     color: #767C80;
+}
+
+.day-div p {
+    font-size: 20px;
+}
+
+.hidden {
+    visibility: hidden;
 }

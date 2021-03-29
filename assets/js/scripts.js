@@ -47,7 +47,7 @@ function lookupUvi(lat, lon) {
                 let img = ("http://openweathermap.org/img/w/" + data.daily[i].weather[0].icon + ".png");
 
                 // Create a div
-                let div = $('<div>');
+                let div = $('<div>').addClass("day-div");
 
                 // Create a headline with the date
                 let date = $('<h2>').text(moment().add((i + 1), 'days').format("l"));
@@ -106,6 +106,9 @@ function lookupWeather() {
 
 // Event listeners
 $("#input").submit(function (event) {
+
+    $('#weather-section').toggleClass("hidden");
+
     cityKey = cityInputEl.val().toLowerCase();
     // cityKey = ("?q=" + cityInput);
     event.preventDefault();
