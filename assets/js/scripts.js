@@ -16,13 +16,16 @@ let searchHistory;
 // Function Definitions
 function lookupUvi(lat, lon) {
 
-    let uviRequestUrl = ("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + apiKey);
+    let uviRequestUrl = ("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + units + "&exclude=hourly,minutely,alerts" + apiKey);
 
     fetch(uviRequestUrl)
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
+
+            console.log(data);
+
             $('#uv-index-indicator').text(data.current.uvi);
 
             if (data.current.uvi < 3) {
@@ -38,6 +41,40 @@ function lookupUvi(lat, lon) {
             } else if (data.current.uvi >= 11) {
                 $('#uv-index-indicator').css("background-color", "purple");
             }
+
+            for (let i = 0; i < 5; i++) {
+
+                let img = ("http://openweathermap.org/img/w/" + data.daily[i].weather[0].icon + ".png");
+
+                // Create a div
+                let div = $('<div>');
+
+                // Create a headline with the date
+                let date = $('<h2>').text("3/29/2021");
+
+                // Create the weather icon and add the current icon to it
+                let icon = $('<img>').attr("src", img);
+
+                // Create a paragraph for the temp and add the current temp to it
+                let temp = $('<p>').text("Temp: " + data.daily[i].temp.day + "°F");
+
+                // Create a paragraph for the humidity add the current temp to it
+                let humidity = $('<p>').text("Humidity: " + data.daily[i].humidity + "%");
+
+                // Append the div to "day-divs"
+                $('#day-divs').append(div);
+
+                // Append the h1 to the div
+                div.append(date);
+                // Append the weather icon to the div
+                div.append(icon);
+
+                // Append the temp paragraph to the div
+                div.append(temp);
+
+                // Append the humidity paragraph to the div
+                div.append(humidity);
+            }
         });
 }
 
@@ -51,7 +88,6 @@ function lookupWeather() {
             return response.json();
         })
         .then(function (data) {
-            console.log(data);
             let icon = ("http://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
             $('#city-name').text(data.name + " (" + today.format("l") + ") ");
             $('#weather-indicator').attr("src", icon);
@@ -87,7 +123,8 @@ $("#input").submit(function (event) {
     // Stringify and set to local storage
     localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
 
-    // $('cityInputEl').val() = '';
+    cityInputEl.val("");
+
 
 
     lookupWeather();
