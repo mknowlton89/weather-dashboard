@@ -6,7 +6,7 @@ let today = moment();
 
 
 // JS Variables
-let url = "http://api.openweathermap.org/data/2.5/weather?q=";
+let url = "https://api.openweathermap.org/data/2.5/weather?q=";
 const apiKey = "&appid=6606e9501ff48568589dcb47972390e6";
 const units = "&units=imperial"
 let cityKey;
@@ -132,9 +132,6 @@ function getInput() {
     lookupWeather();
 }
 
-// Event listeners
-$("#input").submit(getInput);
-
 function init() {
     // Get local storage
     let searchHistory = JSON.parse(localStorage.getItem('searchHistory'));
@@ -152,6 +149,14 @@ function init() {
     localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
 
 }
+
+// Event listeners
+$("#input").submit(getInput);
+
+$('.list-group-item').on("click", function (event) {
+    alert("Event listener is working");
+})
+
 
 // Function Calls
 init();
