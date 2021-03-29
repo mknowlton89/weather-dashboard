@@ -7,23 +7,45 @@ let searchHistoryEl = $("#search-history");
 // JS Variables
 let url = "http://api.openweathermap.org/data/2.5/weather";
 const apiKey = "&appid=6606e9501ff48568589dcb47972390e6";
+const units = "&units=imperial"
 let cityKey;
 let searchHistory;
 
 
 // Function Definitions
+function lookupUvi(lat, lon) {
+
+    let uviRequestUrl = ("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + apiKey);
+
+    fetch(uviRequestUrl)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            $('#uv-index-indicator').text(data.current.uvi);
+        });
+}
+
+
 function lookupWeather() {
 
-    let requestUrl = (url + cityKey + apiKey);
-
-    console.log(requestUrl);
+    let requestUrl = (url + cityKey + units + apiKey);
 
     fetch(requestUrl)
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
-            console.log(data);
+            $('#city-name').text(data.name);
+            // $('#date').text(moment().format(MM DD YYY));
+            $('#daily-temp').text(data.main.temp);
+            $('#daily-humidity').text(data.main.humidity);
+            $('#wind-speed-indicator').text(data.wind.speed);
+
+            let lat = data.coord.lat;
+            let lon = data.coord.lon;
+
+            lookupUvi(lat, lon);
         });
 }
 
@@ -33,7 +55,6 @@ $("#input").submit(function (event) {
     cityInput = cityInputEl.val().toLowerCase();
     cityKey = ("?q=" + cityInput);
     event.preventDefault();
-    console.log(cityKey);
 
     // Get local storage
     let searchHistory = JSON.parse(localStorage.getItem('searchHistory'));
@@ -59,8 +80,6 @@ function init() {
     // Get local storage
     let searchHistory = JSON.parse(localStorage.getItem('searchHistory'));
 
-    console.log(searchHistory);
-
     if (searchHistory == null) {
         searchHistory = [];
     } else {
@@ -72,22 +91,6 @@ function init() {
     }
 
     localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
-
-
-
-    //  calEvents = JSON.parse(localStorage.getItem('calEvents'));
-
-    // if (calEvents == null) {
-    //     calEvents = ['', '', '', '', '', '', '', '', ''];
-    // }
-
-    // calEvents[index] = entry;
-
-    // localStorage.setItem('calEvents', JSON.stringify(calEvents));
-
-    // If null, set it to an empty array
-
-    // Else iterate through searchHistory to populate searchHistoryEl
 
 }
 
