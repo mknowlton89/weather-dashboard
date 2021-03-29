@@ -51,7 +51,10 @@ function lookupWeather() {
             return response.json();
         })
         .then(function (data) {
-            $('#city-name').text(data.name + " (" + today.format("l") + ")");
+            console.log(data);
+            let icon = ("http://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
+            $('#city-name').text(data.name + " (" + today.format("l") + ") ");
+            $('#weather-indicator').attr("src", icon);
             $('#daily-temp').text(data.main.temp);
             $('#daily-humidity').text(data.main.humidity);
             $('#wind-speed-indicator').text(data.wind.speed);

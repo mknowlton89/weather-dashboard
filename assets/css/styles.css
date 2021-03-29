@@ -86,9 +86,9 @@ form input {
     color: white;
 }
 
-#city-detail h1 {
+/* #city-detail h1 {
     padding: 20px 0px 10px 0px
-}
+} */
 
 #city-detail p {
     font-size: 16px;
@@ -104,6 +104,17 @@ form input {
 
 #last-p {
     padding-bottom: 20px;
+}
+
+#headline {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px 0px 10px 0px;
+}
+
+img {
+    height: fit-content;
 }
 
 .list-group {
