@@ -66,6 +66,7 @@ function init() {
     } else {
         for (let i = 0; i < searchHistory.length; i++) {
             let liEl = $('<li>').text(searchHistory[i]);
+            liEl.addClass("list-group-item");
             searchHistoryEl.append(liEl);
         }
     }
