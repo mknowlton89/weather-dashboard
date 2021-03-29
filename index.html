@@ -21,14 +21,11 @@
         <aside id="input-aside">
             <h2>Search for a City:</h2>
             <form id="input">
-                <input id="city-input" type="text">
-                <!-- <button type="submit"><img id="submit-button" src="./assets/images/ClipartKey_3009296.png" alt=""></button> -->
-                <!-- <button type="button" class="btn btn-primary">Submit</button> -->
+                <input id="city-input" type="text" value="">
                 <input type="submit" value="Submit">
-                <!-- <button type="button" class="btn btn-primary"><img id="submit-button" src="./assets/images/ClipartKey_3009296.png" alt=""></button> -->
             </form>
 
-            <ul class="list-group">
+            <ul id="search-history" class="list-group">
                 <li class="list-group-item">Cras justo odio</li>
                 <li class="list-group-item">Dapibus ac facilisis in</li>
                 <li class="list-group-item">Morbi leo risus</li>
@@ -43,8 +40,8 @@
                     <span id="date">(8/15/2019)</span>
                     <span id="weather-indicator"><img src="" alt=""></span>
                 </h1>
-                <p>Temperature: <span class="temp-indicator">90.9</span>°F</p>
-                <p>Humidity: <span class="humidity-indicator">41%</span></p>
+                <p>Temperature: <span id="daily-temp" class="temp-indicator">90.9</span>°F</p>
+                <p>Humidity: <span id="daily-temp" class="humidity-indicator">41%</span></p>
                 <p>Wind Speed: <span id="wind-speed-indicator">4.7</span> MPH</p>
                 <p id="last-p">UV Index: <span id="uv-index-indicator">9.49</span</p>
             </section>
