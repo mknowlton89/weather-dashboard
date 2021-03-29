@@ -89,7 +89,7 @@ function lookupWeather() {
             return response.json();
         })
         .then(function (data) {
-            let icon = ("http://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
+            let icon = ("https://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
             $('#city-name').text(data.name + " (" + today.format("l") + ") ");
             $('#weather-indicator').attr("src", icon);
             $('#daily-temp').text(data.main.temp);
