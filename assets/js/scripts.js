@@ -50,7 +50,7 @@ function lookupUvi(lat, lon) {
                 let div = $('<div>');
 
                 // Create a headline with the date
-                let date = $('<h2>').text("3/29/2021");
+                let date = $('<h2>').text(moment().add((i + 1), 'days').format("l"));
 
                 // Create the weather icon and add the current icon to it
                 let icon = $('<img>').attr("src", img);
@@ -66,6 +66,7 @@ function lookupUvi(lat, lon) {
 
                 // Append the h1 to the div
                 div.append(date);
+
                 // Append the weather icon to the div
                 div.append(icon);
 
