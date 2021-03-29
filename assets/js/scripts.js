@@ -103,9 +103,7 @@ function lookupWeather() {
         });
 }
 
-
-// Event listeners
-$("#input").submit(function (event) {
+function getInput() {
 
     $('#weather-section').toggleClass("hidden");
 
@@ -132,7 +130,10 @@ $("#input").submit(function (event) {
 
 
     lookupWeather();
-})
+}
+
+// Event listeners
+$("#input").submit(getInput);
 
 function init() {
     // Get local storage
