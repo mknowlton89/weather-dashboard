@@ -6,8 +6,8 @@ let today = moment();
 let dayDivsEl = $('<div>');
 dayDivsEl.attr('id', 'day-divs');
 
-let fiveDayHeadline = $('<h2>').text("5-Day Forecast");
-$('#city-5-day').append(fiveDayHeadline);
+// let fiveDayHeadline;
+// $('#city-5-day').append(fiveDayHeadline);
 
 
 
@@ -61,6 +61,10 @@ function lookupUvi(lat, lon) {
 
             $('#city-5-day').append(dayDivsEl);
 
+            // fiveDayHeadline = $('<h2>').text("5-Day Forecast");
+            // $('#city-5-day').append(fiveDayHeadline);
+
+
 
             for (let i = 0; i < 5; i++) {
 
@@ -105,9 +109,9 @@ function lookupWeather() {
     let requestUrl = (url + cityKey + units + apiKey);
 
     dayDivsEl.empty();
-    fiveDayHeadline.empty();
+    // fiveDayHeadline.empty();
     $('#city-detail').empty();
-    $('city-5-day').empty();
+    // $('city-5-day').empty();
 
 
     fetch(requestUrl)
@@ -122,8 +126,15 @@ function lookupWeather() {
                 let dailyTitle = $('<h1>').text("No City Found. Please Try Again.");
                 $('#city-detail').append(erHeadlineEl);
                 erHeadlineEl.append(dailyTitle);
+                if (($('#week-h2').hasClass("hidden")) === false) {
+                    $('#week-h2').toggleClass("hidden");
+                };
                 return;
             }
+
+            if ($('#week-h2').hasClass("hidden")) {
+                $('#week-h2').toggleClass("hidden");
+            };
 
             let headlineEl = $('<div>');
             headlineEl.attr('id', 'headline');
