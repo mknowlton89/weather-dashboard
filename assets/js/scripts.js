@@ -3,6 +3,12 @@ let cityInputEl = $("#city-input");
 let searchHistoryEl = $("#search-history");
 let today = moment();
 
+let dayDivsEl = $('<div>');
+dayDivsEl.attr('id', 'day-divs');
+
+let fiveDayHeadline = $('<h2>').text("5-Day Forecast");
+$('#city-5-day').append(fiveDayHeadline);
+
 
 
 // JS Variables
@@ -24,24 +30,36 @@ function lookupUvi(lat, lon) {
         })
         .then(function (data) {
 
-            $('#uv-index-indicator').text(data.current.uvi);
+            let dailyUvTitle = $('<p>').text("UV Index: ");
+            dailyUvTitle.attr('id', 'last-p');
+
+            let dailyUv = $('<span>').text(data.current.uvi);
+            dailyUv.attr('id', '#uv-index-indicator');
+            dailyUv.attr('style', "padding: 4px", "border-radius: 5px");
+
+            $('#city-detail').append(dailyUvTitle);
+            dailyUvTitle.append(dailyUv);
 
 
             if (data.current.uvi < 3) {
-                $('#uv-index-indicator').css("background-color", "green");
+                dailyUv.css("background-color", "green");
+                dailyUv.css("color", "white");
             } else if (data.current.uvi >= 3 && data.current.uvi < 6) {
-                $('#uv-index-indicator').css("background-color", "yellow");
-                $('#uv-index-indicator').css("color", "black");
+                dailyUv.css("background-color", "yellow");
+                dailyUv.css("color", "black");
                 // $('#uv-index-indicator').attr("style", "color: black");
             } else if (data.current.uvi >= 6 && data.current.uvi < 8) {
-                $('#uv-index-indicator').css("background-color", "orange");
+                dailyUv.css("background-color", "orange");
             } else if (data.current.uvi >= 8 && data.current.uvi < 11) {
-                $('#uv-index-indicator').css("background-color", "red");
+                dailyUv.css("background-color", "red");
             } else if (data.current.uvi >= 11) {
-                $('#uv-index-indicator').css("background-color", "purple");
+                dailyUv.css("background-color", "purple");
             }
 
-            // $('#day-divs').empty();
+            // let dayDivsEl = $('<div>');
+            // dayDivsEl.attr('id', 'day-divs');
+
+            $('#city-5-day').append(dayDivsEl);
 
 
             for (let i = 0; i < 5; i++) {
@@ -64,7 +82,7 @@ function lookupUvi(lat, lon) {
                 let humidity = $('<p>').text("Humidity: " + data.daily[i].humidity + "%");
 
                 // Append the div to "day-divs"
-                $('#day-divs').append(div);
+                dayDivsEl.append(div);
 
                 // Append the h1 to the div
                 div.append(date);
@@ -86,7 +104,11 @@ function lookupWeather() {
 
     let requestUrl = (url + cityKey + units + apiKey);
 
-    $('#day-divs').empty();
+    dayDivsEl.empty();
+    fiveDayHeadline.empty();
+    $('#city-detail').empty();
+    $('city-5-day').empty();
+
 
     fetch(requestUrl)
         .then(function (response) {
@@ -96,16 +118,44 @@ function lookupWeather() {
 
 
             if (data.cod !== 200) {
-                $('#city-name').text("No City Found. Please Try Again.");
+                let erHeadlineEl = $('<div>');
+                let dailyTitle = $('<h1>').text("No City Found. Please Try Again.");
+                $('#city-detail').append(erHeadlineEl);
+                erHeadlineEl.append(dailyTitle);
                 return;
             }
 
+            let headlineEl = $('<div>');
+            headlineEl.attr('id', 'headline');
+
             let icon = ("https://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
-            $('#city-name').text(data.name + " (" + today.format("l") + ") ");
-            $('#weather-indicator').attr("src", icon);
-            $('#daily-temp').text(data.main.temp);
-            $('#daily-humidity').text(data.main.humidity);
-            $('#wind-speed-indicator').text(data.wind.speed);
+            // Create h1 with city name & date format.
+            dailyTitle = $('<h1>').text(data.name + " (" + today.format("l") + ") ");
+            dailyTitle.addClass('#cityName');
+
+            // Create img with weather indicator icon
+            let dailyIcon = $('<img>').attr("src", icon);
+            dailyIcon.addClass('#weather-indicator');
+
+            // Create p tags for daily temp, humidity, and windspeed.
+            let dailyTemp = $('<p>').text("Temperature: " + data.main.temp + "°F");
+            dailyTemp.addClass('#daily-temp');
+
+            let dailyHumidity = $('<p>').text("Humidity: " + data.main.humidity + "%");
+            dailyHumidity.addClass('#daily-humidity');
+
+            let dailyWind = $('<p>').text("Wind Speed: " + data.wind.speed + "MPH");
+            dailyWind.addClass('#daily-wind-speed');
+
+
+            // Append all to the city-detail section
+            $('#city-detail').append(headlineEl);
+            headlineEl.append(dailyTitle);
+            headlineEl.append(dailyIcon);
+
+            $('#city-detail').append(dailyTemp);
+            $('#city-detail').append(dailyHumidity);
+            $('#city-detail').append(dailyWind);
 
             let lat = data.coord.lat;
             let lon = data.coord.lon;
