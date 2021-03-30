@@ -17,17 +17,17 @@ SO THAT I can plan a trip accordingly
 ## Acceptance Criteria
 
 ```
-GIVEN a weather dashboard with form inputs
-WHEN I search for a city
-THEN I am presented with current and future conditions for that city and that city is added to the search history
-WHEN I view current weather conditions for that city
-THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
-WHEN I view the UV index
-THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
-WHEN I view future weather conditions for that city
-THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity
-WHEN I click on a city in the search history
-THEN I am again presented with current and future conditions for that city
+G̶I̶V̶E̶N̶ a̶ w̶e̶a̶t̶h̶e̶r̶ d̶a̶s̶h̶b̶o̶a̶r̶d̶ w̶i̶t̶h̶ f̶o̶r̶m̶ i̶n̶p̶u̶t̶s̶
+W̶H̶E̶N̶ I̶ s̶e̶a̶r̶c̶h̶ f̶o̶r̶ a̶ c̶i̶t̶y̶
+T̶H̶E̶N̶ I̶ a̶m̶ p̶r̶e̶s̶e̶n̶t̶e̶d̶ w̶i̶t̶h̶ c̶u̶r̶r̶e̶n̶t̶ a̶n̶d̶ f̶u̶t̶u̶r̶e̶ c̶o̶n̶d̶i̶t̶i̶o̶n̶s̶ f̶o̶r̶ t̶h̶a̶t̶ c̶i̶t̶y̶ a̶n̶d̶ t̶h̶a̶t̶ c̶i̶t̶y̶ i̶s̶ a̶d̶d̶e̶d̶ t̶o̶ t̶h̶e̶ s̶e̶a̶r̶c̶h̶ h̶i̶s̶t̶o̶r̶y̶
+W̶H̶E̶N̶ I̶ v̶i̶e̶w̶ c̶u̶r̶r̶e̶n̶t̶ w̶e̶a̶t̶h̶e̶r̶ c̶o̶n̶d̶i̶t̶i̶o̶n̶s̶ f̶o̶r̶ t̶h̶a̶t̶ c̶i̶t̶y̶
+T̶H̶E̶N̶ I̶ a̶m̶ p̶r̶e̶s̶e̶n̶t̶e̶d̶ w̶i̶t̶h̶ t̶h̶e̶ c̶i̶t̶y̶ n̶a̶m̶e̶,̶ t̶h̶e̶ d̶a̶t̶e̶,̶ a̶n̶ i̶c̶o̶n̶ r̶e̶p̶r̶e̶s̶e̶n̶t̶a̶t̶i̶o̶n̶ o̶f̶ w̶e̶a̶t̶h̶e̶r̶ c̶o̶n̶d̶i̶t̶i̶o̶n̶s̶,̶ t̶h̶e̶ t̶e̶m̶p̶e̶r̶a̶t̶u̶r̶e̶,̶ t̶h̶e̶ h̶u̶m̶i̶d̶i̶t̶y̶,̶ t̶h̶e̶ w̶i̶n̶d̶ s̶p̶e̶e̶d̶,̶ a̶n̶d̶ t̶h̶e̶ U̶V̶ i̶n̶d̶e̶x̶
+W̶H̶E̶N̶ I̶ v̶i̶e̶w̶ t̶h̶e̶ U̶V̶ i̶n̶d̶e̶x̶
+T̶H̶E̶N̶ I̶ a̶m̶ p̶r̶e̶s̶e̶n̶t̶e̶d̶ w̶i̶t̶h̶ a̶ c̶o̶l̶o̶r̶ t̶h̶a̶t̶ i̶n̶d̶i̶c̶a̶t̶e̶s̶ w̶h̶e̶t̶h̶e̶r̶ t̶h̶e̶ c̶o̶n̶d̶i̶t̶i̶o̶n̶s̶ a̶r̶e̶ f̶a̶v̶o̶r̶a̶b̶l̶e̶,̶ m̶o̶d̶e̶r̶a̶t̶e̶,̶ o̶r̶ s̶e̶v̶e̶r̶e̶
+W̶H̶E̶N̶ I̶ v̶i̶e̶w̶ f̶u̶t̶u̶r̶e̶ w̶e̶a̶t̶h̶e̶r̶ c̶o̶n̶d̶i̶t̶i̶o̶n̶s̶ f̶o̶r̶ t̶h̶a̶t̶ c̶i̶t̶y̶
+T̶H̶E̶N̶ I̶ a̶m̶ p̶r̶e̶s̶e̶n̶t̶e̶d̶ w̶i̶t̶h̶ a̶ 5̶-̶d̶a̶y̶ f̶o̶r̶e̶c̶a̶s̶t̶ t̶h̶a̶t̶ d̶i̶s̶p̶l̶a̶y̶s̶ t̶h̶e̶ d̶a̶t̶e̶,̶ a̶n̶ i̶c̶o̶n̶ r̶e̶p̶r̶e̶s̶e̶n̶t̶a̶t̶i̶o̶n̶ o̶f̶ w̶e̶a̶t̶h̶e̶r̶ c̶o̶n̶d̶i̶t̶i̶o̶n̶s̶,̶ t̶h̶e̶ t̶e̶m̶p̶e̶r̶a̶t̶u̶r̶e̶,̶ a̶n̶d̶ t̶h̶e̶ h̶u̶m̶i̶d̶i̶t̶y̶
+W̶H̶E̶N̶ I̶ c̶l̶i̶c̶k̶ o̶n̶ a̶ c̶i̶t̶y̶ i̶n̶ t̶h̶e̶ s̶e̶a̶r̶c̶h̶ h̶i̶s̶t̶o̶r̶y̶
+T̶H̶E̶N̶ I̶ a̶m̶ a̶g̶a̶i̶n̶ p̶r̶e̶s̶e̶n̶t̶e̶d̶ w̶i̶t̶h̶ c̶u̶r̶r̶e̶n̶t̶ a̶n̶d̶ f̶u̶t̶u̶r̶e̶ c̶o̶n̶d̶i̶t̶i̶o̶n̶s̶ f̶o̶r̶ t̶h̶a̶t̶ c̶i̶t̶y̶
 ```
 
 ## Mock-Up

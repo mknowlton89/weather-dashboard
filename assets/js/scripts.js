@@ -24,8 +24,6 @@ function lookupUvi(lat, lon) {
         })
         .then(function (data) {
 
-            console.log(data);
-
             $('#uv-index-indicator').text(data.current.uvi);
 
 
@@ -95,15 +93,11 @@ function lookupWeather() {
             return response.json();
         })
         .then(function (data) {
-            console.log(data);
-            console.log(data.cod);
 
 
             if (data.cod !== 200) {
                 $('#city-name').text("No City Found. Please Try Again.");
-
                 return;
-
             }
 
             let icon = ("https://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
@@ -117,7 +111,6 @@ function lookupWeather() {
             let lon = data.coord.lon;
 
             lookupUvi(lat, lon);
-
         });
 }
 
@@ -147,8 +140,6 @@ function getInput() {
     localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
 
     cityInputEl.val("");
-
-
 
     lookupWeather();
 }
