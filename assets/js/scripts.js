@@ -28,6 +28,7 @@ function lookupUvi(lat, lon) {
 
             $('#uv-index-indicator').text(data.current.uvi);
 
+
             if (data.current.uvi < 3) {
                 $('#uv-index-indicator').css("background-color", "green");
             } else if (data.current.uvi >= 3 && data.current.uvi < 6) {
@@ -41,6 +42,9 @@ function lookupUvi(lat, lon) {
             } else if (data.current.uvi >= 11) {
                 $('#uv-index-indicator').css("background-color", "purple");
             }
+
+            $('#day-divs').empty();
+
 
             for (let i = 0; i < 5; i++) {
 
@@ -89,6 +93,18 @@ function lookupWeather() {
             return response.json();
         })
         .then(function (data) {
+            console.log(data);
+            console.log(data.cod);
+
+
+            if (data.cod !== 200) {
+                $('#city-name').text("No City Found. Please Try Again.");
+
+                return;
+
+            }
+
+
             let icon = ("https://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
             $('#city-name').text(data.name + " (" + today.format("l") + ") ");
             $('#weather-indicator').attr("src", icon);
@@ -100,14 +116,17 @@ function lookupWeather() {
             let lon = data.coord.lon;
 
             lookupUvi(lat, lon);
+
         });
 }
 
 function getInput() {
 
-    $('#weather-section').toggleClass("hidden");
+    if ($('#weather-section').hasClass("hidden")) {
+        $('#weather-section').toggleClass("hidden");
+    };
 
-    cityKey = cityInputEl.val().toLowerCase();
+    cityKey = cityInputEl.val();
     // cityKey = ("?q=" + cityInput);
     event.preventDefault();
 
@@ -117,6 +136,7 @@ function getInput() {
     // Append an li item to the search history list
     let liEl = $('<li>').text(cityKey);
     liEl.addClass("list-group-item");
+    liEl.attr("value", cityKey);
     searchHistoryEl.append(liEl);
 
     // Push into it
@@ -153,8 +173,15 @@ function init() {
 // Event listeners
 $("#input").submit(getInput);
 
-$('.list-group-item').on("click", function (event) {
-    alert("Event listener is working");
+$('#search-history').on("click", ".list-group-item", function (event) {
+
+    if ($('#weather-section').hasClass("hidden")) {
+        $('#weather-section').toggleClass("hidden");
+    };
+
+    cityKey = event.target.innerHTML;
+
+    lookupWeather();
 })
 
 
