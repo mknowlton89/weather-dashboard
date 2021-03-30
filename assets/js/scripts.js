@@ -43,7 +43,7 @@ function lookupUvi(lat, lon) {
                 $('#uv-index-indicator').css("background-color", "purple");
             }
 
-            $('#day-divs').empty();
+            // $('#day-divs').empty();
 
 
             for (let i = 0; i < 5; i++) {
@@ -87,6 +87,8 @@ function lookupUvi(lat, lon) {
 function lookupWeather() {
 
     let requestUrl = (url + cityKey + units + apiKey);
+
+    $('#day-divs').empty();
 
     fetch(requestUrl)
         .then(function (response) {
