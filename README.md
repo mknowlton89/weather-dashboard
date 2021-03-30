@@ -7,5 +7,5 @@ This is a weather dashboard utilizing the OpenWeatherMap API. Enter a city to ge
 # GitHub Repo
 <a href="https://github.com/mknowlton89/weather-dashboard">Click here to view the GitHub repo.</a>
 
-#Screenshot of the app
-<img src="assets/images/Screen Shot 2021-03-29 at 8.28.00 PM.png" alt="screenshot of the weather dashboard">
+# Screenshot of the app
+<img src="assets/images/Screen Shot 2021-03-29 at 8.28.00 PM.png
